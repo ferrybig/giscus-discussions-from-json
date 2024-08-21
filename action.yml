@@ -17,4 +17,4 @@ inputs:
     description: 'The name of the repository, default to the current repository name'
 runs:
   using: 'node20'
-  main: 'index.js'
+  main: 'dist/start-github.js'
