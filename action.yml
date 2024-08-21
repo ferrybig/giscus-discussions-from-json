@@ -8,13 +8,28 @@ inputs:
   token:
     description: 'https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token#about-the-github_token-secret'
     required: true
-  topicId:
-    description: 'The topic ID to associate the discussions with'
+  categoryId:
+    description: 'The category ID to associate the discussions with'
     required: true
   repoOwner:
     description: 'The owner of the repository, default to the current repository owner'
   repoName:
     description: 'The name of the repository, default to the current repository name'
+  base:
+    description: 'The base URL of the website'
 runs:
-  using: 'node20'
-  main: 'dist/start-github.js'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "--file"
+    - ${{ inputs.file }}
+    - "--token"
+    - ${{ inputs.token }}
+    - "--categoryId"
+    - ${{ inputs.categoryId }}
+    - "--repoOwner"
+    - ${{ inputs.repoOwner }}
+    - "--repoName"
+    - ${{ inputs.repoName }}
+    - "--base"
+    - ${{ inputs.base }}
