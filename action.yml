@@ -1,0 +1,20 @@
+name: 'Create Giscus discussion from json'
+description: 'Create discussions on GitHub for use with Giscus'
+author: 'Fernando'
+inputs:
+  file:
+    description: 'The file containing the posts that require discussion generation'
+    required: true
+  token:
+    description: 'https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token#about-the-github_token-secret'
+    required: true
+  topicId:
+    description: 'The topic ID to associate the discussions with'
+    required: true
+  repoOwner:
+    description: 'The owner of the repository, default to the current repository owner'
+  repoName:
+    description: 'The name of the repository, default to the current repository name'
+runs:
+  using: 'node22'
+  main: 'index.js'
