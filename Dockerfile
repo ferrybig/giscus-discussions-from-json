@@ -6,7 +6,7 @@ RUN npm ci
 
 FROM base as builder
 WORKDIR /app
-COPY package.json .
+COPY package.json tsconfig.json ./
 COPY src src
 COPY --from=deps node_modules ./node_modules
 RUN npm run build
