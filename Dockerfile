@@ -18,5 +18,5 @@ RUN npm ci --production
 FROM base as runner
 WORKDIR /app
 COPY --from=deps-prod node_modules ./node_modules
-COPY --from=builder dist /app
+COPY --from=builder app/dist /app
 ENTRYPOINT [ "node", "/app/start-standalone.js" ]
