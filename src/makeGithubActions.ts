@@ -157,7 +157,7 @@ export default async function makeGithubActions(octokit: Octokit, repoOwner: str
 		console.log(`Creating ${post.url}`);
 		promises.push(octokit.graphql(`
 			mutation($repositoryId: ID!, $title: String!, $body: String!, $categoryId: ID!) {
-				createDiscussion(input: { repositoryId: $repoId, categoryId: $categoryId, title: $title, body: $body }) {
+				createDiscussion(input: { repositoryId: $repositoryId, categoryId: $categoryId, title: $title, body: $body }) {
 					clientMutationId
 				}
 			}
